@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library</title>
+    <style>
+        body{
+            background-color: #222;
+        }
+        .nav{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position:fixed;
+  width:100%;
+}
+li{
+    float:right;
+    text-decoration: none;
+}
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding:10px 16px;
+    text-decoration: solid;
+}
+li a:hover{
+    background-color: #111
+}
+.imag{
+    float: left;
+    padding: 1px;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(0, 0, 0);
+}
+
+.flex-container > div {
+  
+  width: 600px;
+  line-height:75px;
+  margin: 60px 10px 20px;
+  text-align: center;
+  font-size: 100px;
+  color:white;
+  padding: 25px 25px 0px;
+}
+.new:hover{
+    background-color: #111;
+}
+.flex_con {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(0, 0, 0);
+}
+.flex_con > div {
+  
+  width: 20%;
+  line-height:25px;
+  margin: 60px 10px 20px;
+  text-align: center;
+  font-size: 100px;
+  color:white;
+  padding: 25px 25px 0px;
+}
+.reviews-container {
+    width: 80%;
+   margin: 0 auto;
+    padding: 20px;
+        }
+.review {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+     background-color: #f9f9f9;
+}
+.review h3 {
+    margin: 0 0 10px;
+}
+.review p {
+ margin: 5px 0;
+}
+.review .rating {
+   color: #FFD700;
+}
+
+.ontainer {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.title {
+    text-align: center;
+   margin-bottom: 10px;
+}
+.title h2 {
+    margin: 0;
+    font-size: 2em;
+}
+.title p {
+    margin: 5px 0 20px;
+    color:#ee7e07;
+}
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.search-bar {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.search-bar:focus {
+    border-color: #007bff;
+}
+.search-bar-container .icon {
+    margin-left: -30px;
+    align-self: center;
+    color: #666;
+}
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.album-card {
+    background-color:#968471;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+ .album-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+.album-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.album-info {
+    margin-top: 10px;
+}
+.album-title {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+.album-artist {
+    color:#000000;
+    margin: 5px 0;
+}
+.album-description {
+    color: #000000;
+}
+.playlists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.playlist-card {
+    background-color:#968471;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 22%;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.playlist-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+.playlist-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.playlist-info {
+    margin-top: 10px;
+}
+.playlist-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+    text-decoration: solid;
+}
+.playlist-description {
+    color: #000000;
+    margin: 5px 0;
+}
+.playlist-songs {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color:#ee7e07;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+footer {
+    background-color: #333;
+    overflow: hidden;
+    width: 100%;
+}
+
+footer a {
+    text-decoration: none;
+    padding: 15px;
+    text-align: left;
+    float: left;
+    color: white;
+}
+footer a:hover{
+background-color: #000000;
+}
+  
+    </style>
+
+</head>
+<body>
+    <ul class="nav">
+        <div class="imag">
+            <li  class="new" style="color: aliceblue; background-color:#ee7e07; display: block; padding: 10px 16px;">Sign up</li>
+            <li class="new" style="padding:10px 16px; color: white; " >Login</li>
+            <li style="margin: 0px; padding: 0px;"><img src="Music_logo.png" width="10%"></li>
+        </div>
+        <li style="text-align: center;"> <a href="#features">Features </a></li>
+        <li> <a href="#lib">Browse Library</a></li>
+        <li> <a href="#price">Pricing</a></li>
+        <li> <a href="#enterprise">Enterprise</a></li>
+        <li> <a href="#about_us">About Us</a></li>  
+    </ul>
+    <div class="flex-container">
+        <div style="flex-basis:800px; color: #ee7e07; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;">High-Quality
+            <p style="color: rgb(255, 255, 255); line-height: 90px; font-size: 75px;">Sound and Music Library </p>
+            <p style="font-size: 15px; color: aliceblue; line-height: 20px; width: 400px; margin:0px 0px 0px 150px; font-family: Arial, Helvetica, sans-serif;" >Ultimate resource platform for music composers, video producers, podcasters, musicians and anyone who needs top-notch audio quality for their projects with an excellent music experience</p>
+            <div > <a style="font-size: 30px; color: aliceblue; display: block; background-color: #ee7e07; margin:10px; padding: 0px; text-decoration: none;" href="#featured_playlist">Featured Playlist</a></div>
+        </div>
+        <div ><img src="black lady.png" width="600px" padding="20px 20px 0px">
+        </div>
+    </div>
+    <div style="background-color: #ee7e07; width:100%"><p style="color: aliceblue; text-align: center; font-size: 50px;">Featured playlist</p></div>
+    <div class="title">
+        <p>Discover our handpicked selection of the best playlists just for you!</p>
+    </div>
+    <div class="playlists">
+        <div class="playlist-card">
+            <img src="chill_vibes.png" alt="Playlist Cover 1" class="playlist-cover">
+            <div class="playlist-songs">20 Songs</div>
+            <div class="playlist-info">
+                <div class="playlist-title">Chill Vibes</div>
+                <div class="playlist-description">Relax and unwind with these chill tracks perfect for any mood.</div>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="workout.png" alt="Playlist Cover 2" class="playlist-cover">
+            <div class="playlist-songs">15 Songs</div>
+            <div class="playlist-info">
+                <div class="playlist-title">Workout Hits</div>
+                <div class="playlist-description">Get pumped with this high-energy playlist for your workouts.</div>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="top_hits.png" alt="Playlist Cover 3" class="playlist-cover">
+            <div class="playlist-songs">25 Songs</div>
+            <div class="playlist-info">
+                <div class="playlist-title">Top Hits</div>
+                <div class="playlist-description">Stay updated with the latest and greatest hits in the charts.</div>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="rock_classic.png" alt="Playlist Cover 4" class="playlist-cover">
+            <div class="playlist-songs">30 Songs</div>
+            <div class="playlist-info">
+                <div class="playlist-title"> Rock Classic</div>
+                <div class="playlist-description">Rock out to the timeless classics that defined a generation.</div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>    
+<div class="container">
+        <div class="title">
+            <h2 style="color: #ee7e07; font-family:Arial, Helvetica, sans-serif;">RECOMMENDED ALBUMS</h2>
+            <p style="color: #ccc;">Explore the latest and greatest albums curated just for you</p>
+        </div>
+        <div class="search-bar-container">
+            <input type="text" class="search-bar" placeholder="Search for albums...">
+            <div class="icon">&#128269;</div>
+        </div>
+        <div class="albums">
+            <div class="album-card">
+                <img src="eternal_sunshine.png" alt="Album Cover 1" class="album-cover">
+                <div class="album-info">
+                    <div class="album-title">Eternal Sunshine</div>
+                    <div class="album-artist">Ariana Grande</div>
+                    <div class="album-description">The Album addresses feelings of longing from the end of one relationship, to the wide-eyed hopefulness carried into a new one.</div>
+                </div>
+            </div>
+            <div class="album-card">
+                <img src="weeknd.png" alt="Album Cover 2" class="album-cover">
+                <div class="album-info">
+                    <div class="album-title">After Hours</div>
+                    <div class="album-artist">The Weeknd</div>
+                    <div class="album-description">After Hours explores loneliness, self-loathing, and escapism. It is Weeknd's 4th studio album</div>
+                </div>
+            </div>
+            <div class="album-card">
+                <img src="lana.png" alt="Album Cover 3" class="album-cover">
+                <div class="album-info">
+                    <div class="album-title">Born to Die</div>
+                    <div class="album-artist">Lana Del Rey</div>
+                    <div class="album-description">Born to Die features cinematic compositions referring to 1950s and 1960s Americana. The album was the world's fifth best-selling album of 2012.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reviews-container">
+        <h2 style="color:#ee7e07;">User Reviews:</h2>
+        
+        <div class="review">
+            <h3>Riya Arora</h3>
+            <p class="rating">★★★★★</p>
+            <p>Very user-friendly. Really liked the interface.</p>
+            <p><strong>Date:</strong> January 1, 2024</p>
+        </div>
+        
+        <div class="review">
+            <h3>Janet</h3>
+            <p class="rating">★★★★☆</p>
+            <p>Enjoyed the experience. But some changes can be introduced to make it better.</p>
+            <p><strong>Date:</strong> February 15, 2024</p>
+        </div>
+        
+        <div class="review">
+            <h3>Michael Jordan</h3>
+            <p class="rating">★★★☆☆</p>
+            <p>Music playback is fine. But the UI can be done better.</p>
+            <p><strong>Date:</strong> March 10, 2024</p>
+        </div>  
+        <div></div> 
+        <footer style="width: 100%;">
+            <a href="https://www.instagram.com/spotify?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><img src="Instagram_logo_2016.svg.png" alt="Instagram" width="60"></a>
+            <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer"><img src="Spotify_logo_web.png" alt="LinkedIn" width="60"></a>
+            <a href="https://www.facebook.com/SpotifyIndia" target="_blank" rel="noopener noreferrer" > <img src="Facebook_Logo_2023.png" alt="Facebook" width="60"></a>
+            
+        </footer>
+    </body>
+</html>
